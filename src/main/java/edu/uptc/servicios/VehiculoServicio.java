@@ -2,31 +2,34 @@ package edu.uptc.servicios;
 
 import java.util.ArrayList;
 
+import edu.uptc.entidades.Carro;
 import edu.uptc.entidades.Motor;
 import edu.uptc.entidades.Vehiculo;
 
 public class VehiculoServicio {
-    private ArrayList<Vehiculo> vehiculos;
+    private ArrayList<Carro> vehiculos;
 
     public VehiculoServicio() {
         this.vehiculos = new ArrayList<>();
     }
 
-    public String crearVehiculo(String placa, String modelo, String idMotor, String cilindrajeMotor,
-            int cantidadTiemposMotor) {
-                Vehiculo nuevoVehiculo = new Vehiculo();
+    public String crearCarro(String placa, String modelo, String idMotor, String cilindrajeMotor,
+            int cantidadTiemposMotor, int numeroLlantas, int numeroPuertas) {
+                Carro carroNuevo = new Carro();
                 Motor motorNuevoVehiculo = new Motor();
                 motorNuevoVehiculo.setId(idMotor);
                 motorNuevoVehiculo.setCilindraje(cilindrajeMotor);
                 motorNuevoVehiculo.setCantidadTiempos(cantidadTiemposMotor);
 
-                nuevoVehiculo.setPlaca(placa);
-                nuevoVehiculo.setModelo(modelo);
-                nuevoVehiculo.setMotor(motorNuevoVehiculo);
+                carroNuevo.setPlaca(placa);
+                carroNuevo.setModelo(modelo);
+                carroNuevo.setMotor(motorNuevoVehiculo);
+                carroNuevo.setNumeroPuertas(numeroPuertas);
+                carroNuevo.setNumeroLlantas(numeroLlantas);
 
-                vehiculos.add(nuevoVehiculo);
+                vehiculos.add(carroNuevo);
 
-                return nuevoVehiculo.toString();
+                return carroNuevo.toString();
 
     }
 

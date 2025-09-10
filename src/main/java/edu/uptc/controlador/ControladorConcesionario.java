@@ -9,9 +9,9 @@ public class ControladorConcesionario {
         this.vehiculoServicio = new VehiculoServicio();
     }
 
-    public String crearVehiculo(String placa, String modelo, String idMotor, String cilindrajeMotor,
-            int cantidadTiemposMotor){
-        String infoVehiculoCreado = vehiculoServicio.crearVehiculo(placa, modelo, idMotor, cilindrajeMotor, cantidadTiemposMotor);
+    public String crearCarro(String placa, String modelo, String idMotor, String cilindrajeMotor,
+            int cantidadTiemposMotor, int numeroLlantas, int numeroPuertas){
+        String infoVehiculoCreado = vehiculoServicio.crearCarro(placa, modelo, idMotor, cilindrajeMotor, cantidadTiemposMotor, numeroLlantas, numeroPuertas);
         return infoVehiculoCreado;
     }
 
