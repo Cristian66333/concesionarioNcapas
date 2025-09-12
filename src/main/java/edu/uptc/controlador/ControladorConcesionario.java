@@ -18,4 +18,8 @@ public class ControladorConcesionario {
     public String listarVehiculos(){
         return this.vehiculoServicio.mostrarVehiculos();
     }
+
+    public String listarVehiculos(int numeroPuertas){
+        return this.vehiculoServicio.mostrarVehiculos(numeroPuertas);
+    }
 }

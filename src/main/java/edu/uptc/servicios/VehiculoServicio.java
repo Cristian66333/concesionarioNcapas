@@ -36,10 +36,29 @@ public class VehiculoServicio {
     public String mostrarVehiculos(){
         String listaVehiculos = "";
 
-        for (Vehiculo vehiculoAux : vehiculos) {
-            listaVehiculos += vehiculoAux.toString() + "\n";
+        for (Carro carroAux : vehiculos) {
+            listaVehiculos += carroAux.toString() + "\n";
         }
 
         return listaVehiculos;
+    }
+
+    public String mostrarVehiculos(int numeroPuertas){
+        StringBuilder listaVehiculos = new StringBuilder();
+        
+        for (Carro carroAux : vehiculos) {
+            if (carroAux.getNumeroPuertas()>= numeroPuertas) {
+                listaVehiculos.append(carroAux.toString()).append("\n");
+            }
+            
+        }
+        /*vehiculos.stream().forEach(n->{
+            if (n.getNumeroPuertas()>=numeroPuertas) {
+                listaVehiculos.append(n.toString()).append("\n");
+                
+            }
+        });*/
+
+        return listaVehiculos.toString();
     }
 }

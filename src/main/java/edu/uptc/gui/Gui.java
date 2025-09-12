@@ -17,7 +17,8 @@ public class Gui {
                 Ingrese la opcion
                 1. crear vehiculo
                 2. listar vehiculos
-                3.salir
+                3. listar vehiculos por numero puertas
+                4.salir
                 """;
         int opcion = 0;
 
@@ -32,29 +33,38 @@ public class Gui {
                     vistaListarVehiculos();
                     break;
                 case 3:
+                    vistarListarVehiculosPorFiltro();
+                    break;
+                case 4:
                     JOptionPane.showMessageDialog(null, "Adios");
                     break;
 
                 default:
                     break;
             }
-        } while (opcion != 3);
+        } while (opcion != 4);
     }
 
-    public void vistaCrearVehiculo(){
-        String placa=JOptionPane.showInputDialog("Ingrese la placa");
-        String modelo=JOptionPane.showInputDialog("Ingrese la modelo");
-        String idMotor=JOptionPane.showInputDialog("Ingrese la id del motor");
-        String cilindrajeMotor=JOptionPane.showInputDialog("Ingrese cilindraje del motor");
+    public void vistaCrearVehiculo() {
+        String placa = JOptionPane.showInputDialog("Ingrese la placa");
+        String modelo = JOptionPane.showInputDialog("Ingrese la modelo");
+        String idMotor = JOptionPane.showInputDialog("Ingrese la id del motor");
+        String cilindrajeMotor = JOptionPane.showInputDialog("Ingrese cilindraje del motor");
         int numeroLlantas = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el numero de llantas"));
         int numeroPuertas = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el numero de puertas"));
-        int cantTiempos=Integer.parseInt(JOptionPane.showInputDialog("Ingrese la cantidad de tiempos"));
-        String infoVehiculo=this.controlador.crearCarro(placa, modelo, idMotor, cilindrajeMotor, cantTiempos, numeroLlantas,numeroPuertas);
-        JOptionPane.showMessageDialog(null, "Info vehiculo creado:\n"+infoVehiculo);
+        int cantTiempos = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la cantidad de tiempos"));
+        String infoVehiculo = this.controlador.crearCarro(placa, modelo, idMotor, cilindrajeMotor, cantTiempos,
+                numeroLlantas, numeroPuertas);
+        JOptionPane.showMessageDialog(null, "Info vehiculo creado:\n" + infoVehiculo);
     }
 
-    public void vistaListarVehiculos(){
+    public void vistaListarVehiculos() {
         JOptionPane.showMessageDialog(null, this.controlador.listarVehiculos());
+    }
+
+    public void vistarListarVehiculosPorFiltro(){
+        int numeroPuertas = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el numero de puertas minimo para el filtro"));
+        JOptionPane.showMessageDialog(null,controlador.listarVehiculos(numeroPuertas));
     }
 
 }

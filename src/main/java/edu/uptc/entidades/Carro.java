@@ -24,6 +24,13 @@ public class Carro extends Vehiculo{
     public void setNumeroPuertas(int numeroPuertas) {
         this.numeroPuertas = numeroPuertas;
     }
+
+    @Override
+    public String toString(){
+        return "Carro [placa = "+this.placa+" modelo = "+this.modelo+
+        " motor = "+getMotor().toString()+" numero de llantas "+this.numeroLlantas+
+        " numero de puertas = "+this.numeroPuertas+"]";
+    }
     
 
 
